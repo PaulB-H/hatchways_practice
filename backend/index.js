@@ -80,7 +80,7 @@ app.post("/recipes", (req, res) => {
 
       fs.writeFile("data.json", JSON.stringify(data), (err) => {
         if (err) throw err;
-        console.log("The file has been saved!");
+        // console.log("The file has been saved!");
       });
 
       res.sendStatus(201);
@@ -91,8 +91,6 @@ app.post("/recipes", (req, res) => {
 });
 
 app.put("/recipes", (req, res) => {
-  console.log(req.body);
-
   if (!req.body.name || !req.body.ingredients || !req.body.instructions) {
     return res.json({ error: "Missing name, ingredients, or instructions" });
   }
